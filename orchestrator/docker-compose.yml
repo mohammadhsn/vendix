@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+    command: flask --app adapters/flask/app.py run --port 80 --host 0.0.0.0 --debug
+    volumes:
+      - ".:/code"
+    ports:
+      - "8888:80"
+
+  db:
+    restart: unless-stopped
+    image: postgres:14.5
+    environment:
+      POSTGRES_DB: "orchestrator"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5432:5432"

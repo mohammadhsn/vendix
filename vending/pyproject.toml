@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "vending"
+description = "vending service"
+version = "0.1.0"
+authors = ["Mohammad Hosseini <hosseini.mohamad94@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^2.3.2"
+redis = "^4.5.5"
+gunicorn = "^20.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+
+[tool.pytest.ini_options]
+testpaths = [
+#    "src/seedwork/tests",
+    "tests"
+]
+
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning",
+]
+
+
+markers = [
+    "unit: unit tests",
+    "integration: integration tests",
+    "e2e: end to end tests",
+    "this: this is useful for whenever you are working on a specific testcase"
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

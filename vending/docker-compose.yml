@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+    command: flask --app adapters/flask/app.py run --port 80 --host 0.0.0.0 --debug
+    volumes:
+      - ".:/code"
+    ports:
+      - "8000:80"
+
+  redis:
+    image: redis:latest
