@@ -7,11 +7,12 @@ An integrated vending machine management system
 
 ## System design
 The software is composed of two services:
-**Vending**: 
+### Vending:
 It's going to be deployed for each physical vending machine.
 It uses Python and Redis to work and keep the machine state
-**Orchestrator**: A centralized deployable unit for managing vending machines.
-It uses Python and Postgres to keep track of vending machines.
+
+### Orchestrator:
+A centralized deployable unit for managing vending machines. It uses Python and Postgres to keep track of vending machines.
 
 ## Scenario
 - Deploy the `orchestrator` service somewhere in a highly available way [using its docker image](https://github.com/mohammadhsn/vendix/blob/main/orchestrator/Dockerfile).
